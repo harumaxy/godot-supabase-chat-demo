@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/RoomItem.gd" type="Script" id=1]
+
+[node name="Control" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 500, 0 )
+alignment = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Id" type="Label" parent="."]
+margin_left = 323.0
+margin_top = 293.0
+margin_right = 393.0
+margin_bottom = 307.0
+rect_min_size = Vector2( 70, 0 )
+text = "Id"
+align = 2
+
+[node name="RoomName" type="Label" parent="."]
+margin_left = 397.0
+margin_top = 293.0
+margin_right = 497.0
+margin_bottom = 307.0
+rect_min_size = Vector2( 100, 0 )
+text = "Name"
+align = 2
+
+[node name="CreatedAt" type="Label" parent="."]
+margin_left = 501.0
+margin_top = 293.0
+margin_right = 701.0
+margin_bottom = 307.0
+rect_min_size = Vector2( 200, 0 )
+text = "CreatedAt"
+align = 2
+
+[connection signal="gui_input" from="." to="." method="_on_Control_gui_input"]
