@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/Chat.gd" type="Script" id=1]
+
+[node name="Chat" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 510.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RoomName" type="Label" parent="HBoxContainer/VBox"]
+margin_right = 510.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+text = "RoomName"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="TextEdit" parent="HBoxContainer/VBox"]
+margin_top = 54.0
+margin_right = 510.0
+margin_bottom = 600.0
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
+margin_left = 514.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/CenterContainer"]
+margin_left = 5.0
+margin_top = 288.0
+margin_right = 505.0
+margin_bottom = 312.0
+rect_min_size = Vector2( 500, 0 )
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer/CenterContainer/HBoxContainer"]
+margin_right = 453.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+
+[node name="SendButton" type="Button" parent="HBoxContainer/CenterContainer/HBoxContainer"]
+margin_left = 457.0
+margin_right = 500.0
+margin_bottom = 24.0
+text = "Send"
+
+[connection signal="pressed" from="HBoxContainer/CenterContainer/HBoxContainer/SendButton" to="." method="_on_SendButton_pressed"]
