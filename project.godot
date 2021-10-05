@@ -1,0 +1,132 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Reference",
+"class": "AuthTask",
+"language": "GDScript",
+"path": "res://addons/supabase/Auth/auth_task.gd"
+}, {
+"base": "Reference",
+"class": "DatabaseTask",
+"language": "GDScript",
+"path": "res://addons/supabase/Database/database_task.gd"
+}, {
+"base": "Reference",
+"class": "RealtimeChannel",
+"language": "GDScript",
+"path": "res://addons/supabase/Realtime/realtime_channel.gd"
+}, {
+"base": "Node",
+"class": "RealtimeClient",
+"language": "GDScript",
+"path": "res://addons/supabase/Realtime/realtime_client.gd"
+}, {
+"base": "Reference",
+"class": "RoomItem",
+"language": "GDScript",
+"path": "res://src/RoomItem.gd"
+}, {
+"base": "Node",
+"class": "StorageBucket",
+"language": "GDScript",
+"path": "res://addons/supabase/Storage/storage_bucket.gd"
+}, {
+"base": "Reference",
+"class": "StorageTask",
+"language": "GDScript",
+"path": "res://addons/supabase/Storage/storage_task.gd"
+}, {
+"base": "Node",
+"class": "SupabaseAuth",
+"language": "GDScript",
+"path": "res://addons/supabase/Auth/auth.gd"
+}, {
+"base": "Reference",
+"class": "SupabaseAuthError",
+"language": "GDScript",
+"path": "res://addons/supabase/Auth/auth_error.gd"
+}, {
+"base": "Node",
+"class": "SupabaseDatabase",
+"language": "GDScript",
+"path": "res://addons/supabase/Database/database.gd"
+}, {
+"base": "Reference",
+"class": "SupabaseDatabaseError",
+"language": "GDScript",
+"path": "res://addons/supabase/Database/database_error.gd"
+}, {
+"base": "Reference",
+"class": "SupabaseQuery",
+"language": "GDScript",
+"path": "res://addons/supabase/Database/query.gd"
+}, {
+"base": "Node",
+"class": "SupabaseRealtime",
+"language": "GDScript",
+"path": "res://addons/supabase/Realtime/realtime.gd"
+}, {
+"base": "Node",
+"class": "SupabaseStorage",
+"language": "GDScript",
+"path": "res://addons/supabase/Storage/storage.gd"
+}, {
+"base": "Reference",
+"class": "SupabaseStorageError",
+"language": "GDScript",
+"path": "res://addons/supabase/Storage/storage_error.gd"
+}, {
+"base": "Reference",
+"class": "SupabaseUser",
+"language": "GDScript",
+"path": "res://addons/supabase/Auth/user.gd"
+} ]
+_global_script_class_icons={
+"AuthTask": "",
+"DatabaseTask": "",
+"RealtimeChannel": "",
+"RealtimeClient": "",
+"RoomItem": "",
+"StorageBucket": "",
+"StorageTask": "",
+"SupabaseAuth": "",
+"SupabaseAuthError": "",
+"SupabaseDatabase": "",
+"SupabaseDatabaseError": "",
+"SupabaseQuery": "",
+"SupabaseRealtime": "",
+"SupabaseStorage": "",
+"SupabaseStorageError": "",
+"SupabaseUser": ""
+}
+
+[application]
+
+config/name="Godot-supabase-demo"
+run/main_scene="res://scenes/Login.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+Supabase="*res://addons/supabase/Supabase/supabase.gd"
+GlobalState="*res://src/GlobalState.gd"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/supabase/plugin.cfg" )
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
