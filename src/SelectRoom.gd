@@ -1,8 +1,7 @@
 extends Control
 
 var rooms: Array
-var realtime_client : RealtimeClient
-var rooms_channel : RealtimeChannel
+
 
 const RoomItem := preload("res://scenes/RoomItem.tscn")
 const ChatScene := preload("res://scenes/Chat.tscn")
@@ -26,12 +25,6 @@ func _ready():
     print(result.data)
     rooms = result.data
     update_rooms_ui(rooms)
-    realtime_client = Supabase.realtime.client()
-    realtime_client.connect("connected", self, "_on_connected")
-    realtime_client.connect("connected", self, "_on_disconnected")
-    realtime_client.connect("error", self, "_on_error")
-
-    rooms_channel = realtime_client.channel("rooms")
   else:
     print("not login yet")
 
@@ -60,21 +53,6 @@ func _on_RoomItem_deselected(id: int, name: String):
     $HBoxContainer/JoinButton.disabled = true
 
 
-
-func _on_rooms(data):
-  print(data)
-
-func _on_connected():
-  print("connected")
-
-func _on_disconnected():
-  print("disconnect")
-
-func _on_error(err):
-  print(err)
-
-func _on_rooms_insert(new_row, cahnnel):
-  print()
 
 
 func _on_JoinButton_pressed():
