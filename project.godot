@@ -112,7 +112,6 @@ _global_script_class_icons={
 
 config/name="Godot-supabase-demo"
 run/main_scene="res://scenes/Login.tscn"
-config/icon="res://icon.png"
 
 [autoload]
 
@@ -122,6 +121,10 @@ GlobalState="*res://src/GlobalState.gd"
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/supabase/plugin.cfg" )
+
+[global]
+
+icon=false
 
 [physics]
 
