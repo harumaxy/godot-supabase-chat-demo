@@ -15,7 +15,7 @@ brew install postgresql # for psql command
 
 # Launch Login scene
 alias godot="path/to/godot/bin"
-godot scenes/Login.tscn
+godot -d scenes/Login.tscn
 ```
 
 # Recommended DB client
