@@ -1,4 +1,4 @@
 extends Node
 
-var login_info: AuthTask
+var user : SupabaseUser
 var chat_room_id: int

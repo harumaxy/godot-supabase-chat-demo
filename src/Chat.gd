@@ -9,8 +9,6 @@ var room_info : Dictionary
 var channel : RealtimeChannel
 
 func _ready():
-  print(room_info)
-  print(GlobalState.login_info.user)
   # Join Room
   if GlobalState.chat_room_id == null: return
   var room_info_query = SupabaseQuery.new().from("rooms").select().In("id", [GlobalState.chat_room_id])
@@ -59,7 +57,7 @@ func _on_SendButton_pressed():
   var post_message_query = SupabaseQuery.new().from("chat_messages").insert([
     {
       room_id=GlobalState.chat_room_id,
-      user_id=GlobalState.login_info.user.id,
+      user_id=GlobalState.user.id,
       message=line_edit.text
     }
   ])

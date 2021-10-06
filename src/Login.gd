@@ -1,8 +1,5 @@
 extends Control
 
-var user_mail := "harumaxy@gmail.com"
-var user_pwd := "password"
-
 var select_room_scene = preload("res://scenes/SelectRoom.tscn")
 
 #func _ready():
@@ -17,36 +14,31 @@ var select_room_scene = preload("res://scenes/SelectRoom.tscn")
 #
 
 
+onready var email_edit = $VBoxContainer/Email/LineEdit
+onready var password_edit = $VBoxContainer/Password/LineEdit
 
-func try_login() -> bool:
-  if GlobalState.login_info != null:
+func try_login() -> SupabaseUser:
+  if GlobalState.user != null:
     print("already login")
-    return true
-  else:
-    var email = $VBoxContainer/Email/LineEdit.text
-    var password = $VBoxContainer/Password/LineEdit.text
-    var result: AuthTask = yield(Supabase.auth.sign_in(user_mail, user_pwd), "completed")
-    if result.user != null:
-      GlobalState.login_info = result
-      return true
-  return false
-
-func try_sign_up() -> bool:
-  var email = $VBoxContainer/Email/LineEdit.text
-  var password = $VBoxContainer/Password/LineEdit.text
-  var result: AuthTask = yield(Supabase.auth.sign_up(user_mail, user_pwd), "completed")
+    return null
+  var result: AuthTask = yield(Supabase.auth.sign_in(email_edit.text, password_edit.text), "completed")
   if result.user != null:
-    print("sign_up")
-    GlobalState.login_info = result
-    return true
-  return false
+    GlobalState.user = result.user
+    return result.user
+  return null
+
+func try_sign_up() -> SupabaseUser:
+  var result: AuthTask = yield(Supabase.auth.sign_up(email_edit.text, password_edit.text), "completed")
+  if result.user != null:
+    GlobalState.user = result.user
+    return result.user
+  return null
 
 func _on_Button_pressed():
   var login_result = yield(self.try_login(), "completed")
-  if login_result == false:
+  if !login_result:
     login_result = yield(try_sign_up(), "completed")
-
-  if login_result == false:
+  if !login_result:
     print("login failed")
     return
   else:
