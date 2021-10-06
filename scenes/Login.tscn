@@ -67,6 +67,7 @@ margin_right = 646.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 200, 0 )
 text = "password"
+secret = true
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
 margin_top = 318.0
