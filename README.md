@@ -17,16 +17,3 @@ brew install postgresql # for psql command
 alias godot="path/to/godot/bin"
 godot -d scenes/Login.tscn
 ```
-
-# Recommended DB client
-
-I'm using beekeeper studio.
-
-https://www.beekeeperstudio.io
-
-local supabases's default settings
-- host: localhost
-- port: 5432
-- user: postgres
-- password: postgres
-- db: postgres
